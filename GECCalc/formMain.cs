@@ -9,6 +9,7 @@ using CalculationModul;
 using System.Reflection;
 using XMLReaderWriter;
 using System.IO;
+using System.Globalization;
 
 
 //Set Version of G.E.C. Calc
@@ -25,11 +26,15 @@ namespace GECCalc
         List<SoilMaterial> soilList = new List<SoilMaterial>();
         string filePath, previousPath, lastFullNameandFolder;
 
+
         public MainForm()
         {
             //StartSplashscreen with waiting of x Seconds
-            createSplashScreenThread(0.01);
+            createSplashScreenThread(2.5);
             InitializeComponent();
+
+            //Change decimal , to . if necessary
+            setDecimal();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -192,6 +197,7 @@ namespace GECCalc
                             txtAreaRatio.Text = sysData.calc_column_distance().ToString("F3");
                         }
                     }
+
                 }
             }
 
@@ -515,5 +521,37 @@ namespace GECCalc
         }
         #endregion
 
-    }
+        //set decimal . or , at start
+        private void setDecimal()
+        {
+            //Keyboard language for decimal . or ,
+            //Maybe a bad solution with 3 foreach loops, but it works
+
+            CultureInfo keyBoardLang = new CultureInfo(Convert.ToString(CultureInfo.CurrentCulture), true);
+
+            string comma = ",";
+            string point  = ".";
+
+            if (keyBoardLang.NumberFormat.NumberDecimalSeparator != ",")
+            {
+                foreach(TextBox t in this.Controls.OfType<TextBox>())
+                {
+                    t.TextChanged -= this.textBox_changed;
+                }
+
+                foreach (TextBox t in this.Controls.OfType<TextBox>())
+                {
+                    string text = t.Text;
+                    text = text.Replace(comma, point);
+                    t.Text = text;
+                }
+
+                foreach (TextBox t in this.Controls.OfType<TextBox>())
+                {
+                    t.TextChanged += this.textBox_changed;
+                }
+            }
+        }
+    }   
 }
+
