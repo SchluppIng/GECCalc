@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationModul;
 using System.Xml;
@@ -23,7 +21,7 @@ namespace XMLReaderWriter
 
         public XMLRead(string pathToFile, MainForm mainForm)
         {
-
+            //Set objects to read them into xml
             sysData = new SystemData();
             columnMaterial = new ColumnMaterial();
             geo = new GeoTextile();
