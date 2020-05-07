@@ -28,7 +28,7 @@ namespace GECCalc
         public MainForm()
         {
             //StartSplashscreen with waiting of x Seconds
-            createSplashScreenThread(0.01);
+            createSplashScreenThread(2.5);
             InitializeComponent();
         }
 
