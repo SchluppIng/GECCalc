@@ -527,7 +527,6 @@ namespace GECCalc
             //Keyboard language for decimal . or ,
             //Maybe a bad solution with 3 foreach loops, but it works
 
-
             CultureInfo keyBoardLang = new CultureInfo(Convert.ToString(CultureInfo.CurrentCulture), true);
 
             string comma = ",";
