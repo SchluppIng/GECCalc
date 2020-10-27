@@ -13,7 +13,7 @@ using System.Globalization;
 using Printing;
 
 //Set Version of G.E.C. Calc
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
 
 namespace GECCalc
 {
