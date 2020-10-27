@@ -8,5 +8,10 @@ namespace Printing
 {
     class PrintingResults
     {
+        public PrintingResults()
+        {
+            //Add code to print the results
+        }
+
     }
 }

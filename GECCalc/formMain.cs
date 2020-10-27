@@ -10,7 +10,7 @@ using System.Reflection;
 using XMLReaderWriter;
 using System.IO;
 using System.Globalization;
-
+using Printing;
 
 //Set Version of G.E.C. Calc
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -483,6 +483,11 @@ namespace GECCalc
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowOpenFileDialog();
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintingResults printRes = new PrintingResults();
         }
 
         private void ShowOpenFileDialog()
