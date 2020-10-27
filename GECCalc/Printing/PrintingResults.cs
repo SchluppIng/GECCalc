@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Printing
 {
@@ -11,6 +12,8 @@ namespace Printing
         public PrintingResults()
         {
             //Add code to print the results
+
+            MessageBox.Show("Print results coming soon.");
         }
 
     }
