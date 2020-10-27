@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculationModul\PrintingResults.cs" />
     <Compile Include="CalculationModul\ResultCalculation.cs" />
     <Compile Include="CalculationModul\ColumnMaterial.cs" />
     <Compile Include="CalculationModul\GeoTextile.cs" />
