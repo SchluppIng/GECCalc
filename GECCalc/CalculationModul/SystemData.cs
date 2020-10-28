@@ -81,7 +81,7 @@ namespace CalculationModul
         {
             return sysDataString = "Project name: " + Project + "\n\n" +
                 "Total load: " + Math.Round(TotalLoad, 2) + " kN/m²" + "\n" +
-                "Elongation  stiffness: " + J + " kN/m²" + "\n" +
+                "Elongation stiffness: " + J + " kN/m²" + "\n" +
                 "Grid: " + columGrid + "\n" +
                 "Method: " + method + "\n" +
                 "Column diameter dr: " + Math.Round(columnDiamter, 3) + " m\n" +
