@@ -10,10 +10,10 @@ using System.Reflection;
 using XMLReaderWriter;
 using System.IO;
 using System.Globalization;
-using Printing;
+using Output;
 
 //Set Version of G.E.C. Calc
-[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.0.1.1")]
 
 namespace GECCalc
 {
@@ -405,25 +405,36 @@ namespace GECCalc
         #region saveFileDialog
         private void saveFileAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowSaveAsFileDialog();
+            ShowSaveAsFileDialog("xml");
         }
 
         private void buttonSaveAs_Click(object sender, EventArgs e)
         {
-            ShowSaveAsFileDialog();
+            ShowSaveAsFileDialog("xml");
         }
 
-        private void ShowSaveAsFileDialog()
+        private void ShowSaveAsFileDialog(string filter)
         {
-
+            
             
             SaveFileDialog sfd = new SaveFileDialog();
             {
-                //sfd.InitialDirectory = Directory.GetCurrentDirectory();
                 sfd.RestoreDirectory = true;
-                sfd.FilterIndex = 2;
-                sfd.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-                sfd.Title = "Save file as XML.";
+                sfd.FilterIndex = 1;
+
+                if (filter == "xml")
+                {                 
+                    //sfd.InitialDirectory = Directory.GetCurrentDirectory();                    
+                    sfd.DefaultExt = ".xml";
+                    sfd.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                    sfd.Title = "Save file as XML.";
+                }
+                else if(filter == "doc")
+                {
+                    sfd.DefaultExt = "*.doc";
+                    sfd.Filter = "Doc files (*.doc)|*.doc|All files (*.*)|*.*";
+                    sfd.Title = "Save file as Word.";
+                }
             };
 
             if (sfd.ShowDialog() == DialogResult.OK)
@@ -431,7 +442,15 @@ namespace GECCalc
                 filePath = sfd.FileName;
                 previousPath = Path.GetDirectoryName(sfd.FileName);
                 lastFullNameandFolder = previousPath + "\\" + Path.GetFileName(sfd.FileName);
-                XMLWrite xwWrite = new XMLWrite(filePath, sysData, columnMaterial, geoTex, soilList);
+
+                if (filter == "xml")
+                {
+                    XMLWrite xwWrite = new XMLWrite(filePath, sysData, columnMaterial, geoTex, soilList);
+                }
+                else if(filter == "doc")
+                {
+                    WordExport doc = new WordExport(filePath, richTxtResults.Rtf);
+                }
 
                 MessageBox.Show("File saved as " + filePath, "File saved.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -455,7 +474,7 @@ namespace GECCalc
             string lastPath = lastFullPath;
             if (String.IsNullOrEmpty(lastPath))
             {
-                ShowSaveAsFileDialog();
+                ShowSaveAsFileDialog("xml");
             }
             else
             {
@@ -488,6 +507,11 @@ namespace GECCalc
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PrintingResults printRes = new PrintingResults();
+        }
+
+        private void buttonExportWord_Click(object sender, EventArgs e)
+        {
+            ShowSaveAsFileDialog("doc");
         }
 
         private void ShowOpenFileDialog()
