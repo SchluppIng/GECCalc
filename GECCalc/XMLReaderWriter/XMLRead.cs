@@ -172,6 +172,20 @@ namespace XMLReaderWriter
                                 i++;
                             }
                         }
+                        if (xr.AttributeCount > 0)
+                        {
+                            if (xr.Name == "Time_stamp")
+                            {
+                                while (xr.MoveToNextAttribute())
+                                {
+                                    switch (xr.Name)
+                                    {
+                                        case "Saved_file_on":
+                                            break;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

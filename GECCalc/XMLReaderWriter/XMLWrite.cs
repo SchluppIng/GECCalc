@@ -62,9 +62,13 @@ namespace XMLReaderWriter
             }
 
             xw.WriteStartElement("Time_stamp");
-            xw.WriteAttributeString("Saved file on: ", Convert.ToString(DateTime.Now));
+            xw.WriteAttributeString("Saved_file_on", Convert.ToString(DateTime.Now));
+            xw.WriteEndElement();
 
             xw.WriteEndElement();
+
+            
+
             xw.Close();
 
 
