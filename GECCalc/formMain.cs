@@ -506,7 +506,7 @@ namespace GECCalc
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrintingResults printRes = new PrintingResults();
+            PrintingResults printRes = new PrintingResults(richTxtResults);
         }
 
         private void buttonExportWord_Click(object sender, EventArgs e)

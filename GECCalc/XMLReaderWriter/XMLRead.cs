@@ -16,7 +16,7 @@ namespace XMLReaderWriter
         public List<SoilMaterial> soilLayer;// = new List<SoilMaterial>();
         string path;
         MainForm mainfrm;
-        DataGridViewCellEventArgs eventArg;
+        //DataGridViewCellEventArgs eventArg;
         int i;
 
         public XMLRead(string pathToFile, MainForm mainForm)
