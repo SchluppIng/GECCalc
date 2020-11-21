@@ -185,13 +185,13 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.helpToolStripMenuItem1.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -661,7 +661,7 @@
             this.richTextBoxRBK0.Size = new System.Drawing.Size(234, 20);
             this.richTextBoxRBK0.TabIndex = 83;
             this.richTextBoxRBK0.TabStop = false;
-            this.richTextBoxRBK0.Text = "Short tem strength in ring direction RB,k0 [kN/m]";
+            this.richTextBoxRBK0.Text = "Short term strength in ring direction RB,k0 [kN/m]";
             // 
             // richTextBoxGammaM
             // 
